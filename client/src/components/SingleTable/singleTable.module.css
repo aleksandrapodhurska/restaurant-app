@@ -1,0 +1,14 @@
+.singleTableContainer {
+	display: grid;
+	grid-template-columns: 40vw 60vw;
+	grid-template-rows: 100%;
+	grid-template-areas: 'bill menu';
+}
+
+.bill {
+	grid-area: bill;
+}
+
+.menu {
+	grid-area: menu;
+}

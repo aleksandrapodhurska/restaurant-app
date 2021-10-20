@@ -1,0 +1,22 @@
+.menu {
+	display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 5vh auto;
+    grid-template-areas:
+				'navigation'
+				'menu';
+    grid-gap: 15px;
+}
+
+.navBarWrapper {
+	grid-area: navigation;
+	align-self: center;
+}
+
+.menuItemsWrapper {
+	grid-area: menu;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	gap: 10px;
+}
