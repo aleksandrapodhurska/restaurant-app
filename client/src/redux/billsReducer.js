@@ -4,10 +4,11 @@ const SET_IS_FETCHING = "SET_IS_FETCHING";
 const OPEN_BILL = "OPEN_BILL";
 const SET_BILL_ITEMS = "SET_BILL_ITEMS";
 const CLEAR_BILL_ITEMS = "CLEAR_BILL_ITEMS";
+const ADD_ITEM_TO_BILL = "ADD_ITEM_TO_BILL";
+const CONFIRM_ORDER = "CONFIRM_ORDER";
 
 const initialState = {
-	currentBill: [],
-	menuItems: [],
+	currentBill: null,
 	billItems: [],
 	isFetching: false,
 };
@@ -17,16 +18,17 @@ const billsReducer = (state = initialState, action) => {
 		case SET_CURRENT_BILL:
 			return {
 				...state,
-				currentBill: [...action.bill],
+				currentBill: action.bill,
 			};
 		case SET_BILL_ITEMS:
 			return {
 				...state,
-				billItems: [...state.billItems, action.item],
+				billItems: action.items,
 			};
 		case CLEAR_BILL_ITEMS:
 			return {
 				...state,
+				currentBill: null,
 				billItems: [],
 			};
 		case SET_IS_FETCHING:
@@ -38,7 +40,32 @@ const billsReducer = (state = initialState, action) => {
 			return {
 				...state,
 				currentBill: [action.bill],
-				billItems: [action.bill.items],
+			};
+		case ADD_ITEM_TO_BILL:
+			return {
+				...state,
+				currentBill: { ...state.currentBill, isConfirmed: false },
+				billItems: state.billItems.some(
+					(item) => item._id === action.item._id
+				)
+					? [
+							...state.billItems.map((item) => {
+								if (item._id === action.item._id) {
+									item.quantity += action.item.quantity;
+									item.total = +(
+										item.total + action.item.total
+									).toFixed(2);
+									return item;
+								} else {
+									return item;
+								}
+							}),
+					  ]
+					: [...state.billItems, action.item],
+			};
+		case CONFIRM_ORDER:
+			return {
+				...state,
 			};
 		default:
 			return state;
@@ -46,31 +73,27 @@ const billsReducer = (state = initialState, action) => {
 };
 export const setFetching = (boolean) => ({ type: SET_IS_FETCHING, boolean });
 export const setCurrentBill = (bill) => ({ type: SET_CURRENT_BILL, bill });
-export const setBillItems = (item) => ({ type: SET_BILL_ITEMS, item });
+export const setBillItems = (items) => ({ type: SET_BILL_ITEMS, items });
 export const clearBillItems = () => ({ type: CLEAR_BILL_ITEMS });
 
 export const openBill = (bill) => ({
 	type: OPEN_BILL,
 	bill,
 });
+export const addItemToBill = (item) => ({
+	type: ADD_ITEM_TO_BILL,
+	item,
+});
 
 export const setCurrentBillThunkCreator = (tableId) => {
 	return (dispatch) => {
+		dispatch(clearBillItems());
 		dispatch(setFetching(true));
 		dataBase.getBill(tableId).then((data) => {
-			console.log(data);
-			dispatch(setCurrentBill(data)); // set currentBill [isOPen, items[]...]
-			if (data.length > 0) {
-				data[0].items.map((billItem) =>
-					dataBase.getMenuItem(billItem).then((data) => {
-						dispatch(setBillItems(data));
-					})
-				);
-			} else {
-				dispatch(clearBillItems());
-			}
-			dispatch(setFetching(false));
+			dispatch(setCurrentBill(data));
+			dispatch(setBillItems(data.items));
 		});
+		dispatch(setFetching(false));
 	};
 };
 
@@ -78,13 +101,20 @@ export const openBillItemThunkCreator = (tableId, menuItem) => {
 	return (dispatch) => {
 		dispatch(setFetching(true));
 		dataBase.openBill(tableId, menuItem).then((data) => {
-			console.log(data);
 			dispatch(openBill(data));
-			dataBase.getMenuItem(data[0]).then((data) => {
-				dispatch(setBillItems(data));
-			});
-			dispatch(setFetching(false));
+			dispatch(setBillItems(data.items));
 		});
+		dispatch(setFetching(false));
+	};
+};
+
+export const confirmOrderThunkCreator = (tableId, order) => {
+	return (dispatch) => {
+		dispatch(setFetching(true));
+		dataBase.confirmOrder(tableId, order).then((data) => {
+			dispatch(setCurrentBill(data));
+		});
+		dispatch(setFetching(false));
 	};
 };
 

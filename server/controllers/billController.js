@@ -20,9 +20,8 @@ class BillController {
 		try {
 			const newBill = await Bill.create({
 				owner: req.body.tableId,
-				items: req.body.menuItemId,
+				items: [req.body.menuItem],
 			});
-
 			res.status(200).json(newBill);
 		} catch (error) {
 			console.log(error);
@@ -45,6 +44,23 @@ class BillController {
 				const bill = await Bill.find({ owner: id });
 				return res.json(bill);
 			}
+		} catch (error) {
+			return res.status(500).json(error);
+		}
+	}
+	async updateBill(req, res) {
+		try {
+			const { tableId, order } = req.body;
+			console.log(tableId, order);
+			const bill = await Bill.findOneAndUpdate(
+				{ owner: tableId },
+				{
+					items: order,
+				},
+				{ new: true }
+			);
+			console.log(bill);
+			return res.status(201).json(bill);
 		} catch (error) {
 			return res.status(500).json(error);
 		}

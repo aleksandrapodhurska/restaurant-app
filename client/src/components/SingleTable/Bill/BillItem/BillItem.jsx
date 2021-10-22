@@ -10,10 +10,10 @@ const BillItem = (props) => {
 					<span>{props.billItem.name}</span>
 				</div>
 				<div className={style.orderItemQty}>
-					<span>1</span>
+					<span>{props.billItem.quantity}</span>
 				</div>
 				<div className={style.orderItemTotal}>
-					<span>{props.billItem.price}</span>
+					<span>{props.billItem.total}</span>
 				</div>
 				<button className={style.seeMoreButton}><BsChevronRight/></button>
 			</div>

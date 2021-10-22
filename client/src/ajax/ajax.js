@@ -9,7 +9,6 @@ const instance = axios.create({
 const dataBase = {
 	getTables() {
 		return instance.get("tables").then((res) => {
-			console.log(res.data);
 			return res.data;
 		});
 	},
@@ -30,7 +29,10 @@ const dataBase = {
 	},
 	getBill(tableId) {
 		return instance.get(`tables/${tableId}/bill`).then((res) => {
-			return res.data;
+			if (res.data.some((bill) => bill.isOpen)) {
+				return res.data.find((bill) => bill.isOpen);
+			} else return [];
+			// return res.data;
 		});
 	},
 	getMenuItem(menuItemId) {
@@ -38,26 +40,26 @@ const dataBase = {
 			return res.data;
 		});
 	},
-	openBill(tableId, menuItemId) {
+	openBill(tableId, menuItem) {
 		return instance
-			.post(`tables/${tableId}/bill`, { tableId, menuItemId })
+			.post(`tables/${tableId}/bill`, { tableId, menuItem })
 			.then((res) => {
 				return res.data;
 			});
 	},
-	closeBill(tableId, menuItemId) {
-		return instance
-			.put(`tables/${tableId}/bill`, { tableId })
-			.then((res) => {
-				console.log(res.data);
-				return res.data;
-			});
-	},
-	updateBill(tableId, menuItemId) {
-		return instance
-			.put(`menu`, { tableId, menuItemId })
-			.then((res) => console.log(res));
-	},
+	// closeBill(tableId, menuItemId) {
+	// 	return instance
+	// 		.put(`tables/${tableId}/bill`, { tableId })
+	// 		.then((res) => {
+	// 			console.log(res.data);
+	// 			return res.data;
+	// 		});
+	// },
+	// updateBill(tableId, menuItemId) {
+	// 	return instance
+	// 		.put(`menu`, { tableId, menuItemId })
+	// 		.then((res) => console.log(res));
+	// },
 	getCategories() {
 		return instance.get("/menu/categories").then((res) => {
 			return res.data;
@@ -68,6 +70,13 @@ const dataBase = {
 		return instance.get(`/menu/categories/${category}`).then((res) => {
 			return res.data;
 		});
+	},
+	confirmOrder(tableId, order) {
+		return instance
+			.put(`tables/${tableId}/bill`, { tableId, order })
+			.then((res) => {
+				return res.data;
+			});
 	},
 };
 

@@ -8,6 +8,7 @@ tablesRouter.get("/tables/:id", TablesController.getOne);
 tablesRouter.put("/tables/:id", TablesController.toggleOccupied);
 tablesRouter.get("/tables/:id/bill", BillController.getBill);
 tablesRouter.post("/tables/:id/bill", BillController.createNewBill);
+tablesRouter.put("/tables/:id/bill", BillController.updateBill);
 // tablesRouter.post("tables/:id/bill", BillController.addItemToBill);
 
 export default tablesRouter;

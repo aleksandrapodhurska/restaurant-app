@@ -10,7 +10,9 @@ const MenuItems = (props) => {
 			activeMenuItem={props.activeMenuItem}
 			toggleMenuItem={props.toggleMenuItem}
 			openBill={props.openBill}
-			singleTable={props.singleTable}
+			currentBill={props.currentBill}
+			toggleOcupied={props.toggleOcupied}
+			addItemToBill={props.addItemToBill}
 		/>
 	));
 	return <div className={style.menuItemsWrapper}>{menuItems}</div>;

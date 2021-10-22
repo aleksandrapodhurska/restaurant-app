@@ -7,7 +7,8 @@ import {
 	getCategoriesThunkCreator,
 	getMenuByCategoryThunkCreator
 } from "../../../redux/menuReducer";
-import { openBillItemThunkCreator } from "../../../redux/billsReducer";
+import { openBillItemThunkCreator , addItemToBill} from "../../../redux/billsReducer";
+import {toggleOccupiedThunkCreator} from "../../../redux/tablesReducer";
 import Menu from "./Menu";
 
 class MenuContainer extends React.Component {
@@ -28,8 +29,10 @@ class MenuContainer extends React.Component {
 				categories={this.props.categories}
 				activeMenuItem={this.props.activeMenuItem}
 				openBill={this.props.openBill}
-				singleTable={this.props.singleTable}
+				currentBill={this.props.currentBill}
 				toggleMenuItem={this.props.toggleMenuItem}
+				toggleOcupied={this.props.toggleOcupied}
+				addItemToBill={this.props.addItemToBill}
 			/>
 		);
 	}
@@ -38,9 +41,9 @@ class MenuContainer extends React.Component {
 const mapStateToProps = (state) => {
 	return {
 		menu: state.menuPage.menu,
-		singleTable: state.tablesPage.singleTable,
 		activeMenuItem: state.menuPage.activeMenuItem,
 		categories: state.menuPage.categories,
+		currentBill: state.billPage.currentBill
 	};
 };
 
@@ -51,6 +54,7 @@ export default connect(mapStateToProps, {
 	openBill: openBillItemThunkCreator,
 	toggleMenuItem,
 	clearActiveMenuItem,
-	
+	toggleOcupied: toggleOccupiedThunkCreator,
+	addItemToBill,
 
 })(MenuContainer);

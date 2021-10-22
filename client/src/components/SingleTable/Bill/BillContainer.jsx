@@ -1,9 +1,13 @@
-import React from 'react';
-import { connect } from 'react-redux'
-import { setCurrentBillThunkCreator } from '../../../redux/billsReducer';
-import Bill from './Bill';
-import s from '../singleTable.module.css';
-import style from './bill.module.css';
+import React from "react";
+import { connect } from "react-redux";
+import {
+	setCurrentBillThunkCreator,
+	confirmOrderThunkCreator,
+} from "../../../redux/billsReducer";
+import Bill from "./Bill";
+import s from "../singleTable.module.css";
+import style from "./bill.module.css";
+import Spinner from "../../Spinner/Spinner";
 
 class BillContainer extends React.Component {
 	componentDidMount() {
@@ -13,12 +17,19 @@ class BillContainer extends React.Component {
 		}
 	}
 	render() {
-
 		return (
 			<div className={`${s.bill} ${style.order}`}>
-				<Bill currentBill={this.props.currentBill} billItems={this.props.billItems} isFetching={this.props.isFetching}/>
+				{this.props.isFetching && <Spinner/>}
+				{this.props.currentBill != null && 
+					<Bill
+					currentBill={this.props.currentBill}
+					billItems={this.props.billItems}
+					isFetching={this.props.isFetching}
+					confirmBill={this.props.confirmBill}
+				/>}
+				
 			</div>
-		)
+		);
 	}
 }
 
@@ -26,10 +37,11 @@ const mapStateToProps = (state) => {
 	return {
 		currentBill: state.billPage.currentBill,
 		isFetching: state.billPage.isFetching,
-		billItems: state.billPage.billItems
-	}
-}
+		billItems: state.billPage.billItems,
+	};
+};
 
 export default connect(mapStateToProps, {
-	setCurrentBill: setCurrentBillThunkCreator
+	setCurrentBill: setCurrentBillThunkCreator,
+	confirmBill: confirmOrderThunkCreator,
 })(BillContainer);

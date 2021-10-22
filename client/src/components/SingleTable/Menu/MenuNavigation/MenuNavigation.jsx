@@ -10,9 +10,9 @@ const MenuNavigation = (props) => {
 		<div className={`${s.navBarWrapper} ${style.navBarWrapper}`}>
 		<nav>
 			<ul className={style.navBar}>
-				{props.categories.map(category => (
-					<li>
-						<Link to={`${url}`} onClick={() => props.getMenu(category)}>{category}</Link>
+				{props.categories.map((category, i) => (
+					<li key={props.categories[i]} >
+						<Link to={`${url}`} key={props.category} onClick={() => props.getMenu(category)}>{category}</Link>
 					</li>
 				))}
 			</ul>
