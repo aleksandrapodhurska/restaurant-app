@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import {
 	setCurrentBillThunkCreator,
-	confirmOrderThunkCreator,
+	confirmOrderThunkCreator, updateItemInBill, deleteItemInBill
 } from "../../../redux/billsReducer";
 import Bill from "./Bill";
 import s from "../singleTable.module.css";
@@ -26,6 +26,8 @@ class BillContainer extends React.Component {
 					billItems={this.props.billItems}
 					isFetching={this.props.isFetching}
 					confirmBill={this.props.confirmBill}
+					updateItemInBill={this.props.updateItemInBill}
+					deleteItemInBill={this.props.deleteItemInBill}
 				/>}
 				
 			</div>
@@ -44,4 +46,6 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
 	setCurrentBill: setCurrentBillThunkCreator,
 	confirmBill: confirmOrderThunkCreator,
+	updateItemInBill,
+	deleteItemInBill
 })(BillContainer);

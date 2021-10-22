@@ -14,12 +14,13 @@ app.use("/", menuRouter);
 app.use("/", billRouter);
 
 const PORT = process.env.PORT || 5000;
-const ***REMOVED*** = "";
+const DB_URL =
+	"mongodb+srv://***REMOVED***@restaurant.ped92.mongodb.net/RestaurantMenu?retryWrites=true&w=majority";
 
 const start = async () => {
 	try {
 		await mongoose.connect(
-			***REMOVED***,
+			DB_URL,
 			{ useNewUrlParser: true },
 			{ useUnifiedTopology: true }
 			// { useFindAndModify: true },

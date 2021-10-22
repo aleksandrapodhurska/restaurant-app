@@ -19,12 +19,12 @@ const Bill = (props) => {
 			</div>
 		</div>
 		
-		<h3>Order</h3>			
+		<h3>Order</h3>
 
 		{props.billItems && (
 			<>
 			<div className={s.bill}>
-				{props.billItems.map(item => <BillItem key={item._id} billItem={item}/>)}
+				{props.billItems.map(item => <BillItem key={item._id} billItem={item} updateItemInBill={props.updateItemInBill} deleteItemInBill={props.deleteItemInBill}/>)}
 			</div>
 			
 			{!props.currentBill.hasOwnProperty("isConfirmed") && (

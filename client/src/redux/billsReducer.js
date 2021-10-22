@@ -5,6 +5,8 @@ const OPEN_BILL = "OPEN_BILL";
 const SET_BILL_ITEMS = "SET_BILL_ITEMS";
 const CLEAR_BILL_ITEMS = "CLEAR_BILL_ITEMS";
 const ADD_ITEM_TO_BILL = "ADD_ITEM_TO_BILL";
+const UPDATE_ITEM_IN_BILL = "UPDATE_ITEM_IN_BILL";
+const DELETE_ITEM_IN_BILL = "DELETE_ITEM_IN_BILL";
 const CONFIRM_ORDER = "CONFIRM_ORDER";
 
 const initialState = {
@@ -51,9 +53,9 @@ const billsReducer = (state = initialState, action) => {
 					? [
 							...state.billItems.map((item) => {
 								if (item._id === action.item._id) {
-									item.quantity += action.item.quantity;
+									item.quantity += +action.item.quantity;
 									item.total = +(
-										item.total + action.item.total
+										item.total + +action.item.total
 									).toFixed(2);
 									return item;
 								} else {
@@ -62,6 +64,22 @@ const billsReducer = (state = initialState, action) => {
 							}),
 					  ]
 					: [...state.billItems, action.item],
+			};
+		case UPDATE_ITEM_IN_BILL:
+			return {
+				...state,
+				currentBill: { ...state.currentBill, isConfirmed: false },
+				billItems: state.billItems.map((item) =>
+					item._id === action.item._id ? action.item : item
+				),
+			};
+		case DELETE_ITEM_IN_BILL:
+			return {
+				...state,
+				currentBill: { ...state.currentBill, isConfirmed: false },
+				billItems: state.billItems.filter(
+					(item) => item._id !== action.id
+				),
 			};
 		case CONFIRM_ORDER:
 			return {
@@ -83,6 +101,14 @@ export const openBill = (bill) => ({
 export const addItemToBill = (item) => ({
 	type: ADD_ITEM_TO_BILL,
 	item,
+});
+export const updateItemInBill = (item) => ({
+	type: UPDATE_ITEM_IN_BILL,
+	item,
+});
+export const deleteItemInBill = (id) => ({
+	type: DELETE_ITEM_IN_BILL,
+	id,
 });
 
 export const setCurrentBillThunkCreator = (tableId) => {

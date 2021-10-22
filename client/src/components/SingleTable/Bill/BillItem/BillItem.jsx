@@ -1,8 +1,10 @@
-import React from 'react';
-import style from './billItem.module.css';
-import {BsChevronRight} from 'react-icons/bs'
+import React, { useState } from "react";
+import style from "./billItem.module.css";
+import { BsChevronRight } from "react-icons/bs";
+import BillItemModified from "../BillItemModified/BillItemModified";
 
 const BillItem = (props) => {
+	const [modified, setModified] = useState(false);
 	return (
 		<>
 			<div className={style.orderItem}>
@@ -15,12 +17,24 @@ const BillItem = (props) => {
 				<div className={style.orderItemTotal}>
 					<span>{props.billItem.total}</span>
 				</div>
-				<button className={style.seeMoreButton}><BsChevronRight/></button>
+				<button
+					className={style.seeMoreButton}
+					onClick={() => setModified(!modified)}
+				>
+					<BsChevronRight />
+				</button>
 			</div>
-
-
+			{modified && (
+				<BillItemModified
+					billItem={props.billItem}
+					modified={modified}
+					setModified={setModified}
+					updateItemInBill={props.updateItemInBill}
+					deleteItemInBill={props.deleteItemInBill}
+				/>
+			)}
 		</>
-	)
-}
+	);
+};
 
-export default BillItem
+export default BillItem;
