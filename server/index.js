@@ -14,8 +14,7 @@ app.use("/", menuRouter);
 app.use("/", billRouter);
 
 const PORT = process.env.PORT || 5000;
-const DB_URL =
-	"mongodb+srv://***REMOVED***@restaurant.ped92.mongodb.net/RestaurantMenu?retryWrites=true&w=majority";
+const DB_URL = "";
 
 const start = async () => {
 	try {
