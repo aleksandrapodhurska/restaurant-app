@@ -1,5 +1,6 @@
 import dataBase from "../ajax/ajax";
 const GET_MENU = "GET_MENU";
+const CLEAR_MENU = "CLEAR_MENU";
 const GET_CATEGORIES = "GET_CATEGORIES";
 const TOGGLE_MENU_ITEM = "TOGGLE_MENU_ITEM";
 const CLEAR_ACTIVE_MENU_ITEM = "CLEAR_ACTIVE_MENU_ITEM";
@@ -14,6 +15,8 @@ const menuReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case GET_MENU:
 			return { ...state, menu: action.menu };
+		case CLEAR_MENU:
+			return { ...state, menu: [] };
 		case GET_CATEGORIES:
 			return { ...state, categories: action.categories };
 		case TOGGLE_MENU_ITEM:
@@ -40,6 +43,7 @@ const menuReducer = (state = initialState, action) => {
 };
 
 export const getMenu = (menu) => ({ type: GET_MENU, menu });
+export const clearMenu = () => ({ type: CLEAR_MENU });
 
 export const getCategories = (categories) => ({
 	type: GET_CATEGORIES,
@@ -69,6 +73,7 @@ export const getMenuByCategoryThunkCreator = (category) => {
 
 export const getCategoriesThunkCreator = () => {
 	return (dispatch) => {
+		dispatch(clearMenu());
 		dataBase.getCategories().then((data) => {
 			dispatch(getCategories(data));
 		});

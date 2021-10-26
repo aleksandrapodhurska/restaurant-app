@@ -1,0 +1,19 @@
+.app {
+	display: grid;
+	width: 100vw;
+	height: 100vh;
+	grid-template-columns: 100%;
+	grid-template-rows: 10vh auto;
+	grid-template-areas:
+					'header'
+					'main';
+}
+
+.header {
+	grid-area: header;
+}
+
+.main {
+	grid-area: main;
+	padding: 20px;
+}

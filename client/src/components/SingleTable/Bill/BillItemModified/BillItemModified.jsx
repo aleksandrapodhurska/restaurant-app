@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {AiOutlineClose} from 'react-icons/ai'
 import style from "./billItemModified.module.css";
 
 const BillItemModified = (props) => {
@@ -12,7 +13,7 @@ const BillItemModified = (props) => {
 							onClick={() => props.setModified(false)}
 							
 						>
-							X
+							<AiOutlineClose/>
 						</button>
 					</div>
 					<p className={style.menuItemName}>{props.billItem.name}</p>

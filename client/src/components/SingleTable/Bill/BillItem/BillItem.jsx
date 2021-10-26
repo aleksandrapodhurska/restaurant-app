@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "./billItem.module.css";
-import { BsChevronRight } from "react-icons/bs";
+import { BsPencil } from "react-icons/bs";
 import BillItemModified from "../BillItemModified/BillItemModified";
 
 const BillItem = (props) => {
@@ -21,7 +21,7 @@ const BillItem = (props) => {
 					className={style.seeMoreButton}
 					onClick={() => setModified(!modified)}
 				>
-					<BsChevronRight />
+					<BsPencil />
 				</button>
 			</div>
 			{modified && (

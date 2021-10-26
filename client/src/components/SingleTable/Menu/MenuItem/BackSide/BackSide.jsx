@@ -4,7 +4,6 @@ import style from "../menuItem.module.css";
 
 const BackSide = (props) => {
 	const [quantity, setQuantity] = useState(1);
-
 	return (
 		<div
 			className={style.menuItem}
@@ -40,14 +39,14 @@ const BackSide = (props) => {
 				<div className={style.menuItemInfo}>
 					<p className={style.menuItemName}>{props.menuItem.name}</p>
 					<p className={style.menuItemDescription}>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+					{props.menuItem.description}
 					</p>
 				</div>
 				<div className={style.menuItemAddButton}>
 					<button
 						onClick={(e) => {
 							e.stopPropagation();
-							if (props.currentBill === null) {
+							if (props.currentBill === null || props.currentBill.length === 0) {
 								props.openBill(props.singleTable._id, {
 									...props.menuItem,
 									quantity,
@@ -55,7 +54,6 @@ const BackSide = (props) => {
 							  })
 							//   props.toggleOcupied(props.singleTable._id)
 							} else {
-								console.log('bill exsists!!!')
 								props.addItemToBill({
 									...props.menuItem,
 									quantity,

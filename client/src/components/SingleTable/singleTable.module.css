@@ -1,6 +1,6 @@
 .singleTableContainer {
 	display: grid;
-	grid-template-columns: 40vw 60vw;
+	grid-template-columns: 40vw auto;
 	grid-template-rows: 100%;
 	grid-template-areas: 'bill menu';
 }
@@ -9,9 +9,10 @@
 	grid-area: bill;
     display: flex;
 	flex-direction: column;
-    align-items: center;
+	align-items: center;
 }
 
 .menu {
 	grid-area: menu;
+
 }

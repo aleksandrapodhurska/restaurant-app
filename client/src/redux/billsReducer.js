@@ -41,7 +41,7 @@ const billsReducer = (state = initialState, action) => {
 		case OPEN_BILL:
 			return {
 				...state,
-				currentBill: [action.bill],
+				currentBill: action.bill,
 			};
 		case ADD_ITEM_TO_BILL:
 			return {
@@ -84,6 +84,7 @@ const billsReducer = (state = initialState, action) => {
 		case CONFIRM_ORDER:
 			return {
 				...state,
+				billItems: [],
 			};
 		default:
 			return state;
@@ -116,8 +117,13 @@ export const setCurrentBillThunkCreator = (tableId) => {
 		dispatch(clearBillItems());
 		dispatch(setFetching(true));
 		dataBase.getBill(tableId).then((data) => {
-			dispatch(setCurrentBill(data));
-			dispatch(setBillItems(data.items));
+			if (data.length !== 0) {
+				dispatch(setCurrentBill(data));
+				dispatch(setBillItems(data.items));
+			} else {
+				dispatch(setCurrentBill(data));
+				dispatch(setBillItems([]));
+			}
 		});
 		dispatch(setFetching(false));
 	};

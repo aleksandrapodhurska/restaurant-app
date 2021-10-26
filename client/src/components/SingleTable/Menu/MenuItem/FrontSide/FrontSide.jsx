@@ -17,7 +17,7 @@ const FrontSide = (props) => {
 				<div className={style.menuItemInfo}>
 					<p className={style.menuItemName}>{props.menuItem.name}</p>
 					<p className={style.menuItemDescription}>
-						Lorem ipsum dolor sit amet consectetur adipis.
+						{props.menuItem.description}
 					</p>
 				</div>
 				<div className={style.menuItemPrice}>

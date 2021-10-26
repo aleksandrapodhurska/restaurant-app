@@ -27,6 +27,7 @@ const Menu = (props) => {
 							currentBill={props.currentBill}
 							toggleOcupied={props.toggleOcupied}
 							addItemToBill={props.addItemToBill}
+							singleTable={props.singleTable}
 						/>
 					)}
 				/>

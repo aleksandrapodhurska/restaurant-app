@@ -1,0 +1,381 @@
+[
+	{
+		"name": "Focaccia",
+		"description": "Baked Italian bread, olive oil, rosemary & coarse salt, served with tomato salsa and a touch of eggplant cream.",
+		"category": "Starters",
+		"price": 19,
+		"quantity": "200g"
+	},
+	{
+		"name": "Garlic & Mozzarella Focaccia",
+		"description": "Olive oil, garlic, mozzarella & parmesan, tomato salsa.",
+		"category": "Starters",
+		"price": 21,
+		"quantity": "200g"
+	},
+	{
+		"name": "Mushroom Polenta",
+		"description": "Crispy polenta with Champignon & Portobello mushrooms, garlic, parmesan & rocket leaves.",
+		"category": "Starters",
+		"price": 34,
+		"quantity": "250g"
+	},
+	{
+		"name": "Beet Carpaccio",
+		"description": "Thinly sliced beet, feta cheese, a salad of pear & fresh mint, olive oil, reduced balsamic vinegar & roasted pistachios.",
+		"category": "Starters",
+		"price": 36,
+		"quantity": "150g"
+	},
+	{
+		"name": "Beef Carpaccio",
+		"description": "Beef Carpaccio topped with olive oil, reduced balsamic vinegar, arugula & parmesan.",
+		"category": "Starters",
+		"price": 65,
+		"quantity": "120g"
+	},
+	{
+		"name": "Crispy Cauliflower",
+		"description": "Crispy cauliflower served with Caesar dressing, parsley, lemon & parmesan.",
+		"category": "Starters",
+		"price": 27,
+		"quantity": "350g"
+	},
+	{
+		"name": "Chicken Salad",
+		"description": "Lettuce hearts, cucumber, assorted cherry tomatoes, broccoli, red onion, baked potato, seasoned chicken breast, tomato salsa & Kalamata olives, tossed in olive oil & fresh squeezed lemon.",
+		"category": "Salads",
+		"price": 54,
+		"quantity": "350g"
+	},
+	{
+		"name": "Artichoke Caesar Salad",
+		"description": "Lettuce hearts tossed in Caesar dressing, fried artichokes, croutons & parmesan.",
+		"category": "Salads",
+		"price": 52,
+		"quantity": "350g"
+	},
+	{
+		"name": "Roasted Cauliflower & Lentils Salad",
+		"description": "Roasted cauliflower, black lentils, rocket leaves, red onion, dried tomatoes, feta cheese, pine nuts, lemon zest & garlic confit dressing.",
+		"category": "Salads",
+		"price": 53,
+		"quantity": "350g"
+	},
+	{
+		"name": "Panzanella Salad",
+		"description": "Tomatoes, cucumbers, assorted cherry tomatoes, small radish, spring onion, red onion, Kalamata olives, celery, capers, croutons, feta cheese & fresh herbs, tossed in olive oil & fresh squeezed lemon.",
+		"category": "Salads",
+		"price": 53,
+		"quantity": "350g"
+	},
+	{
+		"name": "Caprese Salad",
+		"description": "Tomatoes, assorted cherry tomatoes, basil, Kalamata olives, celery, red onion, sundried tomatoes, artichoke rustic, tomato salsa, fresh mozzarella & reduced balsamic vinegar.",
+		"category": "Salads",
+		"price": 54,
+		"quantity": "350g"
+	},
+	{
+		"name": "Carbonara",
+		"description": "Classic Linguine, smoked goose breast, forest mushrooms, cream, garlic, ground black pepper & egg yolk.",
+		"category": "Pasta",
+		"price": 67,
+		"quantity": "350g"
+	},
+	{
+		"name": "Salmon Crema",
+		"description": "Green Linguine, cream of spinach, cream, salmon filet, leek, forest mushrooms, spinach & sundried tomatoes.",
+		"category": "Pasta",
+		"price": 69,
+		"quantity": "350g"
+	},
+	{
+		"name": "Manzo tirano",
+		"description": "Pappardelle, pulled meat, leaks, mushrooms, garlic, parsley, chili, and spinach in Napoletana sauce.",
+		"category": "Pasta",
+		"price": 69,
+		"quantity": "350g"
+	},
+	{
+		"name": "Chicken Liver and Mushroom Pappardelle",
+		"description": "Pappardelle, roasted mushrooms, chili, spring onions, garlic, spinach, and chicken livers in beef stock with butter and Napoletana sauce",
+		"category": "Pasta",
+		"price": 69,
+		"quantity": "350g"
+	},
+	{
+		"name": "Frutti di Mare",
+		"description": "Classic Linguine, shrimps, calamari, mussels, garlic, chili & herbs in rose sauce.",
+		"category": "Pasta",
+		"price": 69,
+		"quantity": "350g"
+	},
+	{
+		"name": "Pesto Gnocchi",
+		"description": "Homemade gnocchi, cream, pesto, broccoli, sundried tomatoes, asparagus & parmesan.",
+		"category": "Pasta",
+		"price": 57,
+		"quantity": "350g"
+	},
+	{
+		"name": "Vegan Ragù",
+		"description": "Penne pasta with Napoletana sauce, vegetable ragout, garlic, and parsley",
+		"category": "Pasta",
+		"price": 59,
+		"quantity": "350g"
+	},
+	{
+		"name": "Lasagna Ragout",
+		"description": "Pasta leaves, beef ragout, tomato sauce, mozzarella cheese & parmesan.",
+		"category": "Pasta",
+		"price": 64,
+		"quantity": "350g"
+	},
+	{
+		"name": "Margarita",
+		"description": "Tomato sauce & mozzarella cheese.",
+		"category": "Pizza",
+		"price": 46,
+		"quantity": "350g"
+	},
+	{
+		"name": "Melanzana",
+		"description": "Tomato sauce, mozzarella cheese, garlic confit, roasted eggplant, red onion, sundried tomatoes, feta cheese & basil.",
+		"category": "Pizza",
+		"price": 53,
+		"quantity": "350g"
+	},
+	{
+		"name": "Primavera",
+		"description": "Assorted cheeses sauce, roasted cherry tomatoes, garlic confit, Kalamata olives, oregano leaves, fresh mozzarella cheese and reduced balsamic vinegar.",
+		"category": "Pizza",
+		"price": 54,
+		"quantity": "350g"
+	},
+	{
+		"name": "Fungi",
+		"description": "Tomato sauce, mozzarella cheese, forest, Champignon & Portobello mushrooms, spinach & parmesan.",
+		"category": "Pizza",
+		"price": 52,
+		"quantity": "350g"
+	},
+	{
+		"name": "Calabria",
+		"description": "Tomato sauce, mozzarella cheese, pepperoni & forest mushrooms.",
+		"category": "Pizza",
+		"price": 54,
+		"quantity": "350g"
+	},
+	{
+		"name": "Mushrooms Bianca",
+		"description": "Assorted cheeses sauce, mozzarella cheese, truffle puree, Champignon & Portobello mushrooms, leek & parmesan.",
+		"category": "Pizza",
+		"price": 55,
+		"quantity": "350g"
+	},
+	{
+		"name": "Carchofi",
+		"description": "Tomato sauce, mozzarella cheese, artichoke rustic, red onion, Kalamata olives, feta cheese & rocket leaves.",
+		"category": "Pizza",
+		"price": 53,
+		"quantity": "350g"
+	},
+	{
+		"name": "Quattro Formaggi",
+		"description": "Cream of spinach, mozzarella cheese, ricotta, feta, sundried tomatoes & parmesan.",
+		"category": "Pizza",
+		"price": 53,
+		"quantity": "350g"
+	},
+	{
+		"name": "Cheese Ravioli",
+		"description": "Served in tomato / cream / cream & mushroom / rose sauce",
+		"category": "Ravioli",
+		"price": 54,
+		"quantity": "250g"
+	},
+	{
+		"name": "Sweet Potato Ravioli",
+		"description": "Served in tomato / cream / cream & mushroom / rose sauce",
+		"category": "Ravioli",
+		"price": 54,
+		"quantity": "250g"
+	},
+	{
+		"name": "Artichoke Ravioli",
+		"description": "Artichokes & ricotta ravioli in lemon butter, served with peas, zucchini, broccoli, spinach & feta cheese.",
+		"category": "Ravioli",
+		"price": 56,
+		"quantity": "250g"
+	},
+	{
+		"name": "Veal & Chestnuts Ravioli",
+		"description": "Veal & spinach stuffed ravioli in cream, chestnuts & thyme sauce.",
+		"category": "Ravioli",
+		"price": 56,
+		"quantity": "250g"
+	},
+	{
+		"name": "Espresso ristretto",
+		"description": "",
+		"category": "Hot Drinks",
+		"price": 20,
+		"quantity": "30ml"
+	},
+	{
+		"name": "Espresso lungo",
+		"description": "",
+		"category": "Hot Drinks",
+		"price": 20,
+		"quantity": "60ml"
+	},
+	{
+		"name": "Macchiato single",
+		"description": "",
+		"category": "Hot Drinks",
+		"price": 20,
+		"quantity": "30ml"
+	},
+	{
+		"name": "Macchiato lungo",
+		"description": "",
+		"category": "Hot Drinks",
+		"price": 20,
+		"quantity": "60ml"
+	},
+	{
+		"name": "Americano",
+		"description": "",
+		"category": "Hot Drinks",
+		"price": 20,
+		"quantity": "150ml"
+	},
+	{
+		"name": "Tea",
+		"description": "",
+		"category": "Hot Drinks",
+		"price": 20,
+		"quantity": "150ml"
+	},
+	{
+		"name": "Cappuccino",
+		"description": "",
+		"category": "Hot Drinks",
+		"price": 20,
+		"quantity": "150ml"
+	},
+	{
+		"name": "Sea&sun",
+		"description": "White vermouth, Campari, watermelon syrup, lemon juice and tonic water. fresh",
+		"category": "Cocktails and Wine",
+		"price": 28,
+		"quantity": "200ml"
+	},
+	{
+		"name": "Gin gel bell",
+		"description": "jin,peach syrup, lemon, sparkling wine and amarena cherry.",
+		"category": "Cocktails and Wine",
+		"price": 28,
+		"quantity": "200ml"
+	},
+	{
+		"name": "Aperol Spritz",
+		"description": "Aperol, Brut, seltzer water & orange.",
+		"category": "Cocktails and Wine",
+		"price": 28,
+		"quantity": "200ml"
+	},
+	{
+		"name": "Bella ciao",
+		"description": "Frozen cocktail with Rum, basil,pineapple puree and lemon",
+		"category": "Cocktails and Wine",
+		"price": 28,
+		"quantity": "200ml"
+	},
+	{
+		"name": "Gewürztraminer",
+		"description": "Chateau Ste. Michelle, USA Semi-dry.",
+		"category": "Cocktails and Wine",
+		"price": 28,
+		"quantity": "150ml"
+	},
+	{
+		"name": "Sauvignon Blanc",
+		"description": "Silverlake, New Zealand",
+		"category": "Cocktails and Wine",
+		"price": 28,
+		"quantity": "150ml"
+	},
+	{
+		"name": "Pinot Grigio",
+		"description": "Fontana Candida, Italy",
+		"category": "Cocktails and Wine",
+		"price": 28,
+		"quantity": "150ml"
+	},
+	{
+		"name": "Montepulciano D’Abruzzo ‘Podere’",
+		"description": "Umani Ronchi, Italy",
+		"category": "Cocktails and Wine",
+		"price": 28,
+		"quantity": "150ml"
+	},
+	{
+		"name": "Primitivo Salento",
+		"description": "Notte Rossa, Puglia, Italy",
+		"category": "Cocktails and Wine",
+		"price": 28,
+		"quantity": "150ml"
+	},
+	{
+		"name": "Malbec",
+		"description": "Malbec ‘Tilia’, Cantena Zapata, Argentina",
+		"category": "Cocktails and Wine",
+		"price": 129,
+		"quantity": "750ml"
+	},
+	{
+		"name": "‘Ripasso’ della Valpolicella",
+		"description": "‘Corte Giara’, Allegrini, Italy",
+		"category": "Cocktails and Wine",
+		"price": 129,
+		"quantity": "750ml"
+	},
+	{
+		"name": "Tiramisu",
+		"description": "Espresso soaked ladyfingers, layered with whipped mascarpone cream. Classico Fantastico",
+		"category": "Desserts",
+		"price": 38,
+		"quantity": "150g"
+	},
+	{
+		"name": "Crème Brulee",
+		"description": "Classic vanilla custard topped with caramelized sugar – torched upon order. Cream de la creme",
+		"category": "Desserts",
+		"price": 38,
+		"quantity": "150g"
+	},
+	{
+		"name": "Lotus-cheese",
+		"description": "cheese mousse, based on crispy dough coated with lotus crumble. Perfect ending for a perfect meal!!",
+		"category": "Desserts",
+		"price": 39,
+		"quantity": "120g"
+	},
+	{
+		"name": "Soufflé Jandoya",
+		"description": "Warm chocolate cake with a nougat praline, crisp hazelnuts & vanilla ice cream – a must on every table",
+		"category": "Desserts",
+		"price": 39,
+		"quantity": "120g"
+	},
+	{
+		"name": "Affoagato",
+		"description": "Italian cream ice cream topped with a shot of espresso, served with chocolate-nut sauce.",
+		"category": "Desserts",
+		"price": 34,
+		"quantity": "150g"
+	}
+
+]

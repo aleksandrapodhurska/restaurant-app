@@ -8,7 +8,7 @@ const MenuNavigation = (props) => {
 
 	return (
 		<div className={`${s.navBarWrapper} ${style.navBarWrapper}`}>
-		<nav>
+		<nav className={style.menuNavigation}>
 			<ul className={style.navBar}>
 				{props.categories.map((category, i) => (
 					<li key={props.categories[i]} >

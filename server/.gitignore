@@ -1,5 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
+restaurant-fullstack/replacements.txt
+/Users/Aleksandra/Documents/Javascript/React_projects/restaurant-fullstack/replacements.txt
 # dependencies
 /node_modules
 /.pnp

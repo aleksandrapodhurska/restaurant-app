@@ -33,6 +33,7 @@ class MenuContainer extends React.Component {
 				toggleMenuItem={this.props.toggleMenuItem}
 				toggleOcupied={this.props.toggleOcupied}
 				addItemToBill={this.props.addItemToBill}
+				singleTable={this.props.singleTable}
 			/>
 		);
 	}
@@ -48,7 +49,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-	// getMenu: getMenuThunkCreator,
 	getMenu: getMenuByCategoryThunkCreator,
 	getCategories: getCategoriesThunkCreator,
 	openBill: openBillItemThunkCreator,
