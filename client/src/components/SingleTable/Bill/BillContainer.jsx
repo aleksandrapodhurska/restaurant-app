@@ -2,7 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import {
 	setCurrentBillThunkCreator,
-	confirmOrderThunkCreator, updateItemInBill, deleteItemInBill
+	confirmOrderThunkCreator,
+	updateItemInBill,
+	deleteItemInBill,
 } from "../../../redux/billsReducer";
 import Bill from "./Bill";
 import s from "../singleTable.module.css";
@@ -19,17 +21,18 @@ class BillContainer extends React.Component {
 	render() {
 		return (
 			<div className={`${s.bill} ${style.order}`}>
-				{this.props.isFetching && <Spinner/>}
-				{this.props.currentBill != null && 
+				{this.props.isFetching && <Spinner />}
+				{this.props.currentBill != null && (
 					<Bill
-					currentBill={this.props.currentBill}
-					billItems={this.props.billItems}
-					isFetching={this.props.isFetching}
-					confirmBill={this.props.confirmBill}
-					updateItemInBill={this.props.updateItemInBill}
-					deleteItemInBill={this.props.deleteItemInBill}
-				/>}
-				
+						tableNumber={this.props.tableNumber}
+						currentBill={this.props.currentBill}
+						billItems={this.props.billItems}
+						isFetching={this.props.isFetching}
+						confirmBill={this.props.confirmBill}
+						updateItemInBill={this.props.updateItemInBill}
+						deleteItemInBill={this.props.deleteItemInBill}
+					/>
+				)}
 			</div>
 		);
 	}
@@ -47,5 +50,5 @@ export default connect(mapStateToProps, {
 	setCurrentBill: setCurrentBillThunkCreator,
 	confirmBill: confirmOrderThunkCreator,
 	updateItemInBill,
-	deleteItemInBill
+	deleteItemInBill,
 })(BillContainer);

@@ -1,6 +1,6 @@
-import Router from "express";
-import TablesController from "../controllers/tablesController.js";
-import BillController from "../controllers/billController.js";
+const Router = require("express");
+const BillController = require("../controllers/billController");
+const TablesController = require("../controllers/tablesController");
 
 const tablesRouter = Router();
 tablesRouter.get("/tables", TablesController.getAll);
@@ -9,6 +9,5 @@ tablesRouter.put("/tables/:id", TablesController.toggleOccupied);
 tablesRouter.get("/tables/:id/bill", BillController.getBill);
 tablesRouter.post("/tables/:id/bill", BillController.createNewBill);
 tablesRouter.put("/tables/:id/bill", BillController.updateBill);
-// tablesRouter.post("tables/:id/bill", BillController.addItemToBill);
 
-export default tablesRouter;
+module.exports = tablesRouter;

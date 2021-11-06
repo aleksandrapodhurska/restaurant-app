@@ -4,6 +4,7 @@ const GET_SINGLE_TABLE = "GET_SINGLE_TABLE";
 const SET_IS_FETCHING = "SET_IS_FETCHING";
 const TOGGLE_SUBMENU = "TOGGLE_SUBMENU";
 const CLOSE_SUBMENU = "CLOSE_SUBMENU";
+const CLEAR_TABLES = "CLEAR_TABLES";
 
 const initialState = {
 	tables: [],
@@ -15,7 +16,16 @@ const initialState = {
 const tablesReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case GET_TABLES:
-			return { ...state, tables: action.tables };
+			return {
+				...state,
+				tables: action.tables,
+			};
+		case CLEAR_TABLES:
+			return {
+				...state,
+				tables: [],
+				singleTable: null,
+			};
 		case TOGGLE_SUBMENU:
 			return {
 				...state,
@@ -41,18 +51,35 @@ const tablesReducer = (state = initialState, action) => {
 	}
 };
 
-export const getTables = (tables) => ({ type: GET_TABLES, tables });
-export const getSingleTable = (table) => ({ type: GET_SINGLE_TABLE, table });
-export const setFetching = (boolean) => ({ type: SET_IS_FETCHING, boolean });
-export const toggleSubmenu = (table) => ({ type: TOGGLE_SUBMENU, table });
-export const closeSubmenu = () => ({ type: CLOSE_SUBMENU });
+export const getTables = (tables) => ({
+	type: GET_TABLES,
+	tables,
+});
+export const getSingleTable = (table) => ({
+	type: GET_SINGLE_TABLE,
+	table,
+});
+export const setFetching = (boolean) => ({
+	type: SET_IS_FETCHING,
+	boolean,
+});
+export const toggleSubmenu = (table) => ({
+	type: TOGGLE_SUBMENU,
+	table,
+});
+export const closeSubmenu = () => ({
+	type: CLOSE_SUBMENU,
+});
+export const clearTables = () => ({
+	type: CLEAR_TABLES,
+});
 
 export const getTablesThunkCreator = () => {
 	return (dispatch) => {
 		dispatch(setFetching(true));
 		dataBase.getTables().then((data) => {
-			dispatch(setFetching(false));
 			dispatch(getTables(data));
+			dispatch(setFetching(false));
 		});
 	};
 };
@@ -61,8 +88,8 @@ export const getSingleTableThunkCreator = (id) => {
 	return (dispatch) => {
 		dispatch(setFetching(true));
 		dataBase.getSingleTable(id).then((data) => {
-			dispatch(setFetching(false));
 			dispatch(getSingleTable(data));
+			dispatch(setFetching(false));
 		});
 	};
 };
@@ -70,38 +97,13 @@ export const getSingleTableThunkCreator = (id) => {
 export const toggleOccupiedThunkCreator = (table) => {
 	return (dispatch) => {
 		dispatch(setFetching(true));
-		dataBase.toggleOcupied(table).then((data) => {
+		dataBase.toggleOcupied(table).then(() => {
 			dataBase.getTables().then((data) => {
-				dispatch(setFetching(false));
 				dispatch(getTables(data));
+				dispatch(setFetching(false));
 			});
 		});
 	};
 };
 
 export default tablesReducer;
-
-// case ADD_BILL_ITEM:
-// 	let copyState = {
-// 		...state,
-// 		tablesCopy: [...state.tables],
-// 	};
-// 	let tableIndex = copyState.tablesCopy
-// 		.find((item) => item.id === action.tableId)
-// 		.bill.findIndex((item) => item.id === action.menuItem.id);
-// 	if (tableIndex > -1) {
-// 		copyState.tablesCopy
-// 			.find((item) => item.id === action.tableId)
-// 			.bill.find((item) => item.id === action.menuItem.id)
-// 			.quantity++;
-// 		copyState.tablesCopy
-// 			.find((item) => item.id === action.tableId)
-// 			.bill.find(
-// 				(item) => item.id === action.menuItem.id
-// 			).price += action.menuItem.price;
-// 	} else {
-// 		copyState.tablesCopy
-// 			.find((item) => item.id === action.tableId)
-// 			.bill.push(action.menuItem);
-// 	}
-// 	return copyState;

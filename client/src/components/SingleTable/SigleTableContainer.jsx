@@ -5,6 +5,7 @@ import { getSingleTableThunkCreator } from "../../redux/tablesReducer";
 import SingleTable from "./SingleTable";
 import BillContainer from "./Bill/BillContainer";
 import style from "./singleTable.module.css";
+import Spinner from "../Spinner/Spinner";
 
 class SigleTableContainer extends React.Component {
 	componentDidMount() {
@@ -18,15 +19,22 @@ class SigleTableContainer extends React.Component {
 	render() {
 		const { match } = this.props;
 		let tableId = match.params.id;
-
 		return (
-			<div className={style.singleTableContainer}>
-				<SingleTable
-					singleTable={this.props.singleTable}
-					isFetching={this.props.isFetching}
-				/>
-				<BillContainer singleTableId={tableId} />
-			</div>
+			<>
+				{this.props.isFetching && <Spinner />}
+				{this.props.singleTable && (
+					<div className={style.singleTableContainer}>
+						<SingleTable
+							singleTable={this.props.singleTable}
+							isFetching={this.props.isFetching}
+						/>
+						<BillContainer
+							singleTableId={tableId}
+							tableNumber={this.props.singleTable.tableNumber}
+						/>
+					</div>
+				)}
+			</>
 		);
 	}
 }

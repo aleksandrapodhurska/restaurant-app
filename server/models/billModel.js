@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const Bill = mongoose.Schema({
 	owner: { type: mongoose.Types.ObjectId, ref: "Table" },
@@ -14,7 +14,7 @@ const Bill = mongoose.Schema({
 	isOpen: { type: Boolean, default: true },
 });
 
-export default mongoose.model("Bill", Bill);
+module.exports = mongoose.model("Bill", Bill);
 // import mongoose from "mongoose";
 
 // const Bill = mongoose.Schema({

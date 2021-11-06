@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const Table = mongoose.Schema({
 	seats: { type: Number, required: true },
@@ -11,4 +11,4 @@ const Table = mongoose.Schema({
 	bill: { type: mongoose.Types.ObjectId, ref: "Bill", default: null },
 });
 
-export default mongoose.model("Table", Table);
+module.exports = mongoose.model("Table", Table);

@@ -1,8 +1,9 @@
-import Table from "../models/tableModel.js";
+const Table = require("../models/tableModel");
 
 class TablesController {
 	async getAll(req, res) {
 		try {
+			console.log("hi from table controller");
 			const tables = await Table.find();
 			return res.json(tables);
 		} catch (error) {
@@ -41,4 +42,4 @@ class TablesController {
 	}
 }
 
-export default new TablesController();
+module.exports = new TablesController();

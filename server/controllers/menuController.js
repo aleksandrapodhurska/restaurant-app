@@ -1,4 +1,4 @@
-import MenuItem from "../models/menuModel.js";
+const MenuItem = require("../models/menuModel");
 
 class MenuController {
 	async getAll(req, res) {
@@ -42,7 +42,7 @@ class MenuController {
 	}
 }
 
-export default new MenuController();
+module.exports = new MenuController();
 
 // async getCategories(req, res) {
 // 	try {

@@ -1,21 +1,6 @@
-import Bill from "../models/billModel.js";
+const Bill = require("../models/billModel");
 
 class BillController {
-	// async addItemToBill(req, res) {
-	// 	console.log(req.body);
-	// 	try {
-	// 		let { id } = req.params;
-	// 		if (!id) {
-	// 			res.status(400).json("Id not found");
-	// 		} else {
-	// 			const bill = await Bill.find({ owner: id }).items;
-	// 			console.log(bill);
-	// 		}
-	// 		// console.log(req.body);
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 	}
-	// }
 	async createNewBill(req, res) {
 		try {
 			const newBill = await Bill.create({
@@ -67,4 +52,4 @@ class BillController {
 	}
 }
 
-export default new BillController();
+module.exports = new BillController();

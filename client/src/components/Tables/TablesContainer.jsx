@@ -6,15 +6,8 @@ import {
 	toggleOccupiedThunkCreator,
 	toggleSubmenu,
 	closeSubmenu,
+	clearTables
 } from "../../redux/tablesReducer";
-
-const mapStateToProps = (state) => {
-	return {
-		tables: state.tablesPage.tables,
-		isFetching: state.tablesPage.isFetching,
-		tableWithSubMenu: state.tablesPage.activeTable,
-	};
-};
 
 class TablesContainer extends React.Component {
 	componentDidMount() {
@@ -23,6 +16,7 @@ class TablesContainer extends React.Component {
 
 	componentWillUnmount() {
 		this.props.closeSubmenu();
+		this.props.clearTables();
 	}
 
 	render() {
@@ -33,14 +27,26 @@ class TablesContainer extends React.Component {
 				tableWithSubMenu={this.props.tableWithSubMenu}
 				toggleOccupied={this.props.toggleOccupied}
 				toggleSubmenu={this.props.toggleSubmenu}
+				isAuth={this.props.isAuth}
 			/>
 		);
 	}
 }
+
+
+const mapStateToProps = (state) => {
+	return {
+		tables: state.tablesPage.tables,
+		isFetching: state.tablesPage.isFetching,
+		tableWithSubMenu: state.tablesPage.activeTable,
+		isAuth: state.auth.isAuth
+	};
+};
 
 export default connect(mapStateToProps, {
 	getTables: getTablesThunkCreator,
 	toggleOccupied: toggleOccupiedThunkCreator,
 	toggleSubmenu,
 	closeSubmenu,
+	clearTables,
 })(TablesContainer);

@@ -51,7 +51,7 @@ const BillItemModified = (props) => {
 						<p>$ {total}</p>
 					</div>
 					<div>
-						<button
+						<button className={style.deleteButton}
 							onClick={() => {
 								props.deleteItemInBill(props.billItem._id)
 							}}

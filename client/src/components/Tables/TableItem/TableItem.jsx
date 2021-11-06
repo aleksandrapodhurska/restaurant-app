@@ -1,7 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import style from "./tableItem.module.css";
-import { BsPeopleFill, BsFillArrowDownRightCircleFill} from "react-icons/bs";
+import { BsPeopleFill} from "react-icons/bs";
 import SubMenu from "../SubMenu/SubMenu";
 
 const TableItem = (props) => {
@@ -33,12 +32,12 @@ const TableItem = (props) => {
 		<>
 			<div className={`${style.tableItem} ${seats()} ${
 						props.tableItem.occupied ? style.occupied : style.free
-					}`}>
+					}`}
+					onClick={() => props.toggleSubmenu(props.tableItem)}
+			>
 				<div className={style.tableInfo}>
-					<div className={style.tableNumber}>02</div>
+					<div className={style.tableNumber}>{props.tableItem.tableNumber}</div>
 					<div className={style.seatsNumber}><BsPeopleFill className={style.seatsNumberIcon}/><span>{props.tableItem.seats}</span></div>
-					<div className={style.toggleSubmenu} onClick={() => props.toggleSubmenu(props.tableItem)}>
-						<BsFillArrowDownRightCircleFill/></div>
 				</div>
 				<div className={style.seatsContainer}>
 					{drawSeats()}

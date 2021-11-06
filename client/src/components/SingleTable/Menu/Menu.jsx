@@ -14,7 +14,7 @@ const Menu = (props) => {
 				categories={props.categories}
 				getMenu={props.getMenu}
 			/>
-			<div>
+			<>
 				<Route
 					exact
 					path={`${path}`}
@@ -31,7 +31,7 @@ const Menu = (props) => {
 						/>
 					)}
 				/>
-			</div>
+			</>
 		</div>
 	);
 };

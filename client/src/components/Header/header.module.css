@@ -16,13 +16,15 @@
 
 .userInfo img {
 	display: block;
-	width: 100px;
-	height: 100px;
+	width: 6vh;
+    height: 6vh;
 	border-radius: 50%;
 }
 
 .navigation {
-
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
 }
 
 .navigation a {

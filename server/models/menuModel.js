@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const MenuItem = mongoose.Schema({
 	name: { type: String, required: true },
@@ -8,4 +8,4 @@ const MenuItem = mongoose.Schema({
 	quantity: { type: Number, required: false },
 });
 
-export default mongoose.model("MenuItem", MenuItem);
+module.exports = mongoose.model("MenuItem", MenuItem);

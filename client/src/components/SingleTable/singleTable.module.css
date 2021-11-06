@@ -1,8 +1,9 @@
 .singleTableContainer {
 	display: grid;
-	grid-template-columns: 40vw auto;
+	grid-template-columns: 40% 55%;
 	grid-template-rows: 100%;
 	grid-template-areas: 'bill menu';
+	grid-gap: 5%;
 }
 
 .bill {
